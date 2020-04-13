@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.form-control {
+  color: black!important
+}
+
+.order-status-border {
+  border-width: 3px;
+}
+
+.less-item-bg-color {
+  background-color: rgb(255, 197, 143);
+}
+
+.no-stock-item-bg-color {
+  background-color: rgb(255, 153, 153);
+}
