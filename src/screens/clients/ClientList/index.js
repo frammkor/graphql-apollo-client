@@ -5,28 +5,23 @@ import { GET_CLIENTS } from '../../../queries';
 
 // COMP
 import { ClientListItem, Pager, Spiner } from '../../../components';
-import { SuccessAlert } from '../../../components/Alerts/SuccessAlert';
+import { SuccessAlert } from '../../../components/Alerts';
 
-const ClientList = () => {
+const ClientList = ({ session }) => {
+  let creatorId = session.role === 'ADMIN' ? ('') : (session._id)
+
   const [alert, setAlert] = useState({ show: false, message: '', })
   const willAlert = (alert.show) ? <SuccessAlert message={alert.message} /> : '';
 
   const [currentPage, setCurrentPage] = useState(1);
   const [offset, setOffset] = useState(0);
   const limit = 10;
-
-  useEffect(() => {
-    return () => {
-
-    }
-  })
-
   return (
     <div className='container' >
       <Query
         query={GET_CLIENTS}
         pollInterval={1000}
-        variables={{ limit, offset }}
+        variables={{ limit, offset, creatorId }}
       >
         {({ loading, error, data, startPolling, stopPolling }) => {
           if (loading) return <Spiner />

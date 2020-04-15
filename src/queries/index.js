@@ -12,15 +12,17 @@ query getTopClientBySpends {
     clientInfo {
       id
       firstName
+
     }
   }
 }
 `
 
 export const GET_CLIENTS = gql`
-query getClients ($limit: Int, $offset: Int) {
-  getClients (limit: $limit, offset: $offset) {
+query getClients ($limit: Int, $offset: Int, $creatorId: ID) {
+  getClients (limit: $limit, offset: $offset, creatorId: $creatorId) {
     id
+    creatorId
     firstName
     lastName
     company
@@ -86,6 +88,17 @@ query getOrdersByClientId ($clientId: ID) {
     date
     clientId
     status
+  }
+}
+`
+
+// USERS
+export const GET_CURRENT_USER = gql`
+query getCurrentUser {
+  getCurrentUser {
+    _id
+    userName
+    role
   }
 }
 `

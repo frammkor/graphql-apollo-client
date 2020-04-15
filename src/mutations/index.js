@@ -89,3 +89,17 @@ export const UPDATE_ORDER = gql`
     updateOrder(input: $input)
 }
 `
+
+// USERS
+export const CREATE_USER = gql`
+  mutation createUser ($input: UserInput) {
+  createUser (input: $input)
+}
+`
+export const AUTHENTICATE_USER = gql`
+mutation authenticate ($input: UserInput) {
+  authenticateUser (input: $input) {
+    token
+  }
+}
+`

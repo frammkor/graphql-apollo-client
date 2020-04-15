@@ -4,7 +4,8 @@ import { Mutation } from 'react-apollo'
 
 export default props => {
   // recives a mutatation and depending on the screen that calls this component we migth recive a client info to edit
-  let { client, propMutation } = props;
+  let { client, propMutation, session } = props;
+
   const history = useHistory();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -54,6 +55,7 @@ export default props => {
       type,
       emails,
       age: Number(age),
+      creatorId: session._id,
     }
     mutation({ variables: { input } });
   }

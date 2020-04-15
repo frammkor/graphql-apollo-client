@@ -17,6 +17,9 @@ export { default as ProductListItem } from "./ProductListItem";
 export { default as ProductSelection } from './ProductSelection'
 export { default as OrderListItem } from './OrderListItem'
 
+// AUTH
+export { default as Session } from './Session';
+
 // // PRODUCTS
 // export { default as ProductList } from "./ProductList";
 // export { default as NewProduct } from "./NewProduct";

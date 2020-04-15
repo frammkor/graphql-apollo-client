@@ -7,3 +7,11 @@ export const SuccessAlert = ({ message }) => {
     </p>
   )
 }
+
+export const WarningAlert = ({ message }) => {
+  return (
+    <p className='alert alert-danger text-center'>
+      - {message}
+    </p>
+  )
+}

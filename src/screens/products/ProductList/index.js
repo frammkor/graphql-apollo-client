@@ -5,7 +5,7 @@ import { GET_PRODUCTS } from '../../../queries';
 
 // COMP
 import { ProductListItem, Pager, Spiner, } from '../../../components';
-import { SuccessAlert } from '../../../components/Alerts/SuccessAlert';
+import { SuccessAlert } from '../../../components/Alerts';
 
 
 const ProductList = () => {
