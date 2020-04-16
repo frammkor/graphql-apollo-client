@@ -1,16 +1,16 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import IsAuthentiactedNavBar from './IsAuthentiactedNavBar'
-import NotAuthenticatedNavBar from './NotAuthenticatedNavBar'
+import IsAuthentiactedNavBar from './IsAuthentiactedNavBar';
+import NotAuthenticatedNavBar from './NotAuthenticatedNavBar';
 
 const Header = ({ session }) => {
   const history = useHistory();
-  if (!session && (history.location.pathname !== '/login' && history.location.pathname !== '/')) { history.push('/login') }
+  if (!session && (history.location.pathname !== '/login' && history.location.pathname !== '/')) { history.push('/login'); }
   const navBar = session ? (
     <IsAuthentiactedNavBar session={session} />
   ) : (
-      <NotAuthenticatedNavBar />
-    )
+    <NotAuthenticatedNavBar />
+  );
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between d-flex mb-4">
@@ -18,7 +18,7 @@ const Header = ({ session }) => {
         {navBar}
       </div>
     </nav>
-  )
+  );
 };
 
 export default Header;

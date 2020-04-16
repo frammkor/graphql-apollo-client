@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import gql from 'graphql-tag';
 
 // CLIENTS
 
@@ -36,7 +36,7 @@ export const DELETE_CLIENT = gql`
 mutation deleteClient ($clientId: ID!) {
   deleteClient (clientId: $clientId)
 }
-`
+`;
 
 // PRODUCTS
 
@@ -48,7 +48,7 @@ mutation createProduct ($input: ProductInput) {
     stock
   }
 }
-`
+`;
 
 export const EDIT_PRODUCT = gql`
 mutation updateProduct ($input: ProductInput) {
@@ -65,7 +65,7 @@ export const DELETE_PRODUCT = gql`
 mutation deleteProduct ($id: ID!) {
   deleteProduct (id: $id)
 }
-`
+`;
 
 // ORDERS
 export const CREATE_ORDER = gql`
@@ -82,24 +82,27 @@ mutation createOrder ($input: OrderInput) {
     }
   }
 }
-`
+`;
 
 export const UPDATE_ORDER = gql`
   mutation updateOrder ($input: OrderInput) {
     updateOrder(input: $input)
 }
-`
+`;
 
 // USERS
 export const CREATE_USER = gql`
   mutation createUser ($input: UserInput) {
-  createUser (input: $input)
+  createUser (input: $input) {
+      status
+      message
+  }
 }
-`
+`;
 export const AUTHENTICATE_USER = gql`
 mutation authenticate ($input: UserInput) {
   authenticateUser (input: $input) {
     token
   }
 }
-`
+`;

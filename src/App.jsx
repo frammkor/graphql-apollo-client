@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // APOLLO
 import { ApolloProvider } from 'react-apollo';
@@ -51,7 +51,7 @@ const AppRoutes = ({ refetch, session }) => {
           <Route exact path='/product/edit/:id' component={EditProduct} />
           <Route exact path='/order/new/:clientId' render={() => <CreateOrder session={session} />} />
           <Route exact path='/orders/:clientId' render={() => <OrderListByClient session={session} />} />
-          <Route exact path='/panel' component={Panel} />
+          <Route exact path='/' component={Panel} />
           <Route exact path='/login' render={() => <LoginScreen refetch={refetch} />} />
           {session && session.role === "ADMIN" ? (
             <Route exact path='/register' component={RegisterScreen} />

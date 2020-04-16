@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { useHistory } from "react-router-dom";
-import { Mutation } from 'react-apollo'
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Mutation } from 'react-apollo';
 
-export default props => {
+export default (props) => {
   // recives a mutatation and depending on the screen that calls this component we migth recive a client info to edit
   const { product, propMutation } = props;
   const history = useHistory();
@@ -19,7 +19,7 @@ export default props => {
       setId(product.id);
     }
     return () => {
-    }
+    };
   }, [product]);
 
   // FORM & MUTATION
@@ -30,9 +30,9 @@ export default props => {
       name,
       price: Number(price),
       stock: Number(stock),
-    }
+    };
     mutation({ variables: { input } });
-  }
+  };
 
   // AFTER MUTATION ENDS
   const redirect = () => {
@@ -42,22 +42,23 @@ export default props => {
     } else {
       history.push('/products');
     }
-  }
+  };
 
   const validateProductForm = () => {
-    const toReturn = !name || !price || !stock
-    return toReturn
-  }
+    const toReturn = !name || !price || !stock;
+    return toReturn;
+  };
 
   return (
     <>
       <Mutation
         mutation={propMutation}
-        onCompleted={redirect} >
+        onCompleted={redirect}
+      >
         {(runMutation) => (
           <form
             className="col-md-8"
-            onSubmit={e => sendFrom(e, runMutation)}
+            onSubmit={(e) => sendFrom(e, runMutation)}
           >
             <div className="form-group">
               <label>Name:</label>
@@ -67,7 +68,7 @@ export default props => {
                 name="name"
                 className="form-control"
                 placeholder="Product's name"
-                onChange={e => setName(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className="form-group">
@@ -82,7 +83,7 @@ export default props => {
                   name="price"
                   className="form-control"
                   placeholder="Product's price"
-                  onChange={e => setPrice(e.target.value)}
+                  onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
             </div>
@@ -94,18 +95,19 @@ export default props => {
                 name="stock"
                 className="form-control"
                 placeholder="Product's stock"
-                onChange={e => setStock(e.target.value)}
+                onChange={(e) => setStock(e.target.value)}
               />
             </div>
             <button
               disabled={validateProductForm()}
               type="submit"
-              className="btn btn-success float-right">
+              className="btn btn-success float-right"
+            >
               Save Product
-          </button>
+            </button>
           </form>
         )}
       </Mutation>
     </>
-  )
-}
+  );
+};

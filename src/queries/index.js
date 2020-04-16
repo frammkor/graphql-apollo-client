@@ -1,5 +1,5 @@
 // GRAPHQL
-import gql from "graphql-tag";
+import gql from 'graphql-tag';
 
 // ────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -15,7 +15,7 @@ query getTopClientBySpends {
     }
   }
 }
-`
+`;
 
 export const GET_CLIENTS = gql`
 query getClients ($limit: Int, $offset: Int, $userId: ID) {
@@ -89,7 +89,7 @@ query getOrdersByClientId ($clientId: ID) {
     status
   }
 }
-`
+`;
 
 // USERS
 export const GET_CURRENT_USER = gql`
@@ -100,4 +100,16 @@ query getCurrentUser {
     role
   }
 }
-`
+`;
+
+export const GET_TOP_SELLER_BY_SPENDS = gql`
+query getTopSellerBySpends {
+  getTopSellerBySpends {
+    totalSpend
+    userInfo {
+      role
+      userName
+    }
+  }
+}
+`;
