@@ -5,11 +5,11 @@ import { Spiner } from '..';
 import { useParams } from 'react-router-dom';
 
 export default () => {
-  const { clientId: id } = useParams();
+  const { clientId } = useParams();
   return (
     <>
       <h4 className='text-center mb-2'>Client Info</h4>
-      <Query query={GET_CLIENT_BY_ID} variables={{ id }} pollInterval={1000}>
+      <Query query={GET_CLIENT_BY_ID} variables={{ clientId }} pollInterval={1000}>
         {({ loading, error, data, startPolling, stopPolling }) => {
           if (loading) {
             return <Spiner />
@@ -28,7 +28,7 @@ export default () => {
                 <li className='border font-weight-bold p-2'>
                   Id:
                     <span className='font-weight-normal'>
-                    {' ' + id}
+                    {' ' + clientId}
                   </span>
                 </li>
                 <li className='border font-weight-bold p-2'>
@@ -56,7 +56,6 @@ export default () => {
                   </span>
                 </li>
               </ul>
-              // <ClientForm client={data.getClientById} propMutation={EDIT_CLIENT} refetch={refetch} />
             )
           }
         }}

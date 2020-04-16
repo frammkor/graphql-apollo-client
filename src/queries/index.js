@@ -10,9 +10,8 @@ query getTopClientBySpends {
   getTopClientBySpends {
     totalSpend
     clientInfo {
-      id
+      clientId
       firstName
-
     }
   }
 }
@@ -21,7 +20,7 @@ query getTopClientBySpends {
 export const GET_CLIENTS = gql`
 query getClients ($limit: Int, $offset: Int, $userId: ID) {
   getClients (limit: $limit, offset: $offset, userId: $userId) {
-    id
+    clientId
     userId
     firstName
     lastName
@@ -36,9 +35,9 @@ query getClients ($limit: Int, $offset: Int, $userId: ID) {
 `;
 
 export const GET_CLIENT_BY_ID = gql`
-query getClientById ($id: ID!) {
-  getClientById(id: $id) {
-    id
+query getClientById ($clientId: ID!) {
+  getClientById(clientId: $clientId) {
+    clientId
     firstName
     lastName
     company

@@ -45,12 +45,12 @@ const AppRoutes = ({ refetch, session }) => {
         <Switch>
           <Route exact path='/clients' render={() => <ClientList session={session} />} />
           <Route exact path='/client/new' render={() => <CreateClient session={session} />} />
-          <Route exact path='/client/edit/:id' component={EditClient} />
+          <Route exact path='/client/edit/:clientId' render={() => <EditClient session={session} />} />
           <Route exact path='/products' component={ProductList} />
           <Route exact path='/product/new' component={CreateProduct} />
           <Route exact path='/product/edit/:id' component={EditProduct} />
           <Route exact path='/order/new/:clientId' render={() => <CreateOrder session={session} />} />
-          <Route exact path='/orders/:id' render={() => <OrderListByClient session={session} />} />
+          <Route exact path='/orders/:clientId' render={() => <OrderListByClient session={session} />} />
           <Route exact path='/panel' component={Panel} />
           <Route exact path='/login' render={() => <LoginScreen refetch={refetch} />} />
           {session && session.role === "ADMIN" ? (

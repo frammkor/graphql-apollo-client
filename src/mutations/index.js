@@ -5,7 +5,7 @@ import gql from "graphql-tag";
 export const CREATE_CLIENT = gql`
 mutation createClient ($input: ClientInput) {
   createClient (input: $input) {
-    id
+    clientId
     firstName
     lastName
     company
@@ -19,7 +19,7 @@ mutation createClient ($input: ClientInput) {
 export const EDIT_CLIENT = gql`
 mutation updateClient ($input: ClientInput) {
   updateClient (input: $input) {
-    id
+    clientId
     firstName
     lastName
     company
@@ -33,8 +33,8 @@ mutation updateClient ($input: ClientInput) {
 `;
 
 export const DELETE_CLIENT = gql`
-mutation deleteClient ($id: ID!) {
-  deleteClient (id: $id)
+mutation deleteClient ($clientId: ID!) {
+  deleteClient (clientId: $clientId)
 }
 `
 

@@ -7,7 +7,6 @@ import { GET_PRODUCTS } from '../../../queries';
 // import { CREATE_ORDER } from "../../mutations";
 
 export default ({ session }) => {
-  const { clientId } = useParams();
   return (
     <>
       <h2 className='text-center mb-5'>Create Order </h2>
@@ -31,7 +30,6 @@ export default ({ session }) => {
               }}
             </Query>
           </div>
-          {/* <ProductForm propMutation={CREATE_PRODUCT} /> */}
         </div>
       </div>
     </>

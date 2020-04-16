@@ -6,6 +6,7 @@ const Session = Component => props => (
   <Query query={GET_CURRENT_USER} >
     {({ loading, error, data, refetch, startPolling, stopPolling }) => {
       if (loading) return null
+      console.log(data)
       return <Component {...props} refetch={refetch} session={data.getCurrentUser} />
     }}
   </Query>

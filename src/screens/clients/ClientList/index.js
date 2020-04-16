@@ -31,13 +31,10 @@ const ClientList = ({ session }) => {
               <h2 className='text-center mb-5' >Clients List</h2>
               {willAlert}
               <ul className='list-group' >
-                {data.getClients.map(({ company, firstName, id, lastName }) => (
+                {data.getClients.map(client => (
                   <ClientListItem
-                    company={company}
-                    firstName={firstName}
-                    id={id}
-                    key={id}
-                    lastName={lastName}
+                    client={client}
+                    key={client.clientId}
                     setAlert={setAlert}
                   />
                 ))}

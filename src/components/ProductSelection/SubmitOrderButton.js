@@ -7,7 +7,7 @@ import { useParams, useHistory } from 'react-router-dom';
 
 const SubmitOrderButton = ({ totalPrice, productsToOrder }) => {
   const history = useHistory();
-  const { id: clientId } = useParams();
+  const { clientId } = useParams();
   return (
     <Mutation
       mutation={CREATE_ORDER}

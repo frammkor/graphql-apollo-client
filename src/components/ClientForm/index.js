@@ -5,7 +5,6 @@ import { Mutation } from 'react-apollo'
 const ClientForm = props => {
   // recives a mutatation and depending on the screen that calls this component we migth recive a client info to edit
   let { client, propMutation, session } = props;
-  console.log("session._ud", session._id)
 
   const history = useHistory();
   const [firstName, setFirstName] = useState('');
@@ -14,7 +13,7 @@ const ClientForm = props => {
   const [type, setType] = useState('');
   const [company, setCompany] = useState('');
   const [emails, setEmails] = useState([{ email: '' }]);
-  const [id, setId] = useState('');
+  const [clientId, setClienId] = useState('');
   useEffect(() => {
     // if we are editing the component gets a client and fills the state with its information
     if (client) {
@@ -24,7 +23,7 @@ const ClientForm = props => {
       setLastName(client.lastName)
       setAge(client.age)
       setEmails(client.emails)
-      setId(client.id)
+      setClienId(client.clientId)
     }
     return () => {
       client = {}
@@ -49,7 +48,7 @@ const ClientForm = props => {
   const sendFrom = (e, mutation) => {
     e.preventDefault();
     const input = {
-      id,
+      clientId,
       firstName,
       lastName,
       company,

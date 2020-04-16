@@ -7,13 +7,13 @@ import { Query } from 'react-apollo';
 import { GET_CLIENT_BY_ID } from '../../../queries';
 import { EDIT_CLIENT } from '../../../mutations';
 
-const EditClient = () => {
-  const { id } = useParams();
+const EditClient = ({ session }) => {
+  const { clientId } = useParams();
   return (
     <>
       <h2 className='text-center mb-5' >Edit Client</h2>
       <div className='row justify-content-center' >
-        <Query query={GET_CLIENT_BY_ID} variables={{ id }}>
+        <Query query={GET_CLIENT_BY_ID} variables={{ clientId }}>
           {({ loading, error, data, refetch }) => {
             if (loading) {
               return <Spiner />
@@ -21,7 +21,7 @@ const EditClient = () => {
               return `Error! ${error.message}`
             } else {
               return (
-                <ClientForm client={data.getClientById} propMutation={EDIT_CLIENT} refetch={refetch} />
+                <ClientForm client={data.getClientById} propMutation={EDIT_CLIENT} refetch={refetch} session={session} />
               )
             }
           }}
