@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom";
 import { Mutation } from 'react-apollo'
 
-export default props => {
+const ClientForm = props => {
   // recives a mutatation and depending on the screen that calls this component we migth recive a client info to edit
   let { client, propMutation, session } = props;
+  console.log("session._ud", session._id)
 
   const history = useHistory();
   const [firstName, setFirstName] = useState('');
@@ -55,7 +56,7 @@ export default props => {
       type,
       emails,
       age: Number(age),
-      creatorId: session._id,
+      userId: session._id,
     }
     mutation({ variables: { input } });
   }
@@ -147,3 +148,5 @@ export default props => {
     </>
   )
 }
+
+export default ClientForm;

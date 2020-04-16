@@ -4,7 +4,7 @@ import Animated from 'react-select/animated'
 import SelectedProductItem from './SelectedProductItem'
 import SubmitOrderButton from './SubmitOrderButton'
 
-const ProductSelection = ({ userId, products }) => {
+const ProductSelection = ({ products }) => {
   const [productsToOrder, setProductsToOrder] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
 

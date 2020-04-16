@@ -6,15 +6,15 @@ import { Query } from 'react-apollo';
 import { GET_PRODUCTS } from '../../../queries';
 // import { CREATE_ORDER } from "../../mutations";
 
-export default () => {
-  const { id } = useParams();
+export default ({ session }) => {
+  const { clientId } = useParams();
   return (
     <>
       <h2 className='text-center mb-5'>Create Order </h2>
       <div className='container' >
         <div className='row' >
           <div className='col-md-3' >
-            <ClientData id={id} />
+            <ClientData />
           </div>
           <div className='col-md-9'>
             <Query query={GET_PRODUCTS} variables={{ byStock: true }}>
@@ -24,7 +24,6 @@ export default () => {
                 else {
                   return (
                     <ProductSelection
-                      userId={id}
                       products={data.getProducts}
                     />
                   )

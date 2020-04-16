@@ -49,8 +49,8 @@ const AppRoutes = ({ refetch, session }) => {
           <Route exact path='/products' component={ProductList} />
           <Route exact path='/product/new' component={CreateProduct} />
           <Route exact path='/product/edit/:id' component={EditProduct} />
-          <Route exact path='/order/new/:id' component={CreateOrder} />
-          <Route exact path='/orders/:id' component={OrderListByClient} />
+          <Route exact path='/order/new/:clientId' render={() => <CreateOrder session={session} />} />
+          <Route exact path='/orders/:id' render={() => <OrderListByClient session={session} />} />
           <Route exact path='/panel' component={Panel} />
           <Route exact path='/login' render={() => <LoginScreen refetch={refetch} />} />
           {session && session.role === "ADMIN" ? (

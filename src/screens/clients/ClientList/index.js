@@ -8,7 +8,7 @@ import { ClientListItem, Pager, Spiner } from '../../../components';
 import { SuccessAlert } from '../../../components/Alerts';
 
 const ClientList = ({ session }) => {
-  let creatorId = session.role === 'ADMIN' ? ('') : (session._id)
+  let userId = session.role === 'ADMIN' ? ('') : (session._id)
 
   const [alert, setAlert] = useState({ show: false, message: '', })
   const willAlert = (alert.show) ? <SuccessAlert message={alert.message} /> : '';
@@ -21,7 +21,7 @@ const ClientList = ({ session }) => {
       <Query
         query={GET_CLIENTS}
         pollInterval={1000}
-        variables={{ limit, offset, creatorId }}
+        variables={{ limit, offset, userId }}
       >
         {({ loading, error, data, startPolling, stopPolling }) => {
           if (loading) return <Spiner />

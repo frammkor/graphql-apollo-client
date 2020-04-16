@@ -2,8 +2,10 @@ import React from 'react'
 import { Query } from 'react-apollo';
 import { GET_CLIENT_BY_ID } from '../../queries';
 import { Spiner } from '..';
+import { useParams } from 'react-router-dom';
 
-export default ({ id }) => {
+export default () => {
+  const { clientId: id } = useParams();
   return (
     <>
       <h4 className='text-center mb-2'>Client Info</h4>

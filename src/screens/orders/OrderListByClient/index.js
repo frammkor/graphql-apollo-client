@@ -4,8 +4,8 @@ import { GET_ORDER_BY_CLIENT_ID } from '../../../queries'
 import { Query } from 'react-apollo'
 import { Spiner, OrderListItem } from '../../../components'
 
-const OrderListByClient = () => {
-  const { id: clientId } = useParams();
+const OrderListByClient = ({ session }) => {
+  const { clientId } = useParams();
   React.useEffect(() => {
     return () => {
     }
