@@ -35,25 +35,25 @@ const OrderListItem = ({ order, refetch }) => {
       Order Up to Date
     </button>
   ) : (
-    <Mutation
-      mutation={UPDATE_ORDER}
-      variables={{ input: updatedOrder }}
-      onCompleted={(data) => {
-        setMutationRes(data.updateOrder);
-        refetch();
-      }}
-    >
-      {(runMutation) => (
-        <button
-          type="button"
-          className="btn btn-primary mr-2"
-          onClick={runMutation}
-        >
-          Update Order
-        </button>
-      )}
-    </Mutation>
-  );
+      <Mutation
+        mutation={UPDATE_ORDER}
+        variables={{ input: updatedOrder }}
+        onCompleted={(data) => {
+          setMutationRes(data.updateOrder);
+          refetch();
+        }}
+      >
+        {(runMutation) => (
+          <button
+            type="button"
+            className="btn btn-primary mr-2"
+            onClick={runMutation}
+          >
+            Update Order
+          </button>
+        )}
+      </Mutation>
+    );
 
   const [mutationRes, setMutationRes] = useState('');
   const updateNotification = mutationRes ? (
@@ -108,14 +108,7 @@ const OrderListItem = ({ order, refetch }) => {
               {displayData}
             </span>
           </p>
-          <p className="card-text font-weight-bold">
-            Total:
-            <span className="font-weight-normal">
-              {' '}
-              $
-              {totalPrice}
-            </span>
-          </p>
+
           <h5 className="card-text mb-3">Products Requested</h5>
           <ul className="">
             {
@@ -128,6 +121,14 @@ const OrderListItem = ({ order, refetch }) => {
               ))
             }
           </ul>
+          <div className={'d-flex align-items-center justify-content-end'}>
+            <p className="card-text font-weight-bold">Total:</p>
+            <p className="font-weight-normal">
+              {' '}
+              $
+              {totalPrice}
+            </p>
+          </div>
           {needToUpdateButton}
           {updateNotification}
         </div>

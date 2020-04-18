@@ -8,7 +8,10 @@ import { ClientListItem, Pager, Spiner } from '../../../components';
 import { SuccessAlert } from '../../../components/Alerts';
 
 const ClientList = ({ session }) => {
-  const userId = session.role === 'ADMIN' ? ('') : (session._id);
+  let userId;
+  if (session) {
+    userId = session.role === 'ADMIN' ? ('') : (session._id);
+  }
 
   const [alert, setAlert] = useState({ show: false, message: '' });
   const willAlert = (alert.show) ? <SuccessAlert message={alert.message} /> : '';

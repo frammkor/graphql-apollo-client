@@ -30,7 +30,7 @@ query getClients ($limit: Int, $offset: Int, $userId: ID) {
     }
     age
       }
-  getTotalClients
+  getTotalClients (userId: $userId)
 }
 `;
 
